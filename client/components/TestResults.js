@@ -7,9 +7,9 @@ class TestResults extends Component {
       <ul>
         {this.props.data.map((data) =>
           <ul>
-            <li key={uuid.v4()}>{data.testName}</li>
-            <li key={uuid.v4()}>{data.testId}</li>
-            <li key={uuid.v4()}>{data.testClicks}</li>
+            <li key={uuid.v4()}><strong>Element {data.id}</strong></li>
+            <li key={uuid.v4()}>Info: {data.name}</li>
+            <li key={uuid.v4()}>Clicks: {data.result_a}</li>
           </ul>
         )}
       </ul>

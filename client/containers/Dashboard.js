@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { fetchDataIfNeeded, invalidateApiEndpoint } from '../actions/api';
 import TestResults from '../components/TestResults';
+import StartTest from '../components/StartTest';
 
 const apiEndpoint = '/api/results';
 
@@ -58,6 +59,7 @@ class Dashboard extends Component {
         }
         {data.length > 0 &&
           <div style={{ opacity: isFetching ? 0.5 : 1 }}>
+            <StartTest />
             <TestResults data={data} />
           </div>
         }
