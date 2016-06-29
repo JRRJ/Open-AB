@@ -1,8 +1,8 @@
 language: node_js
+sudo: required
 node_js:
   - "6"
 scripts:
-  - npm run seed-db
   - npm test
 services: 
   - postgresql
