@@ -20,6 +20,9 @@ describe('DB Queries for API Server', () => {
     // drop tables in test database, create new tables in database
     const client = new pg.Client(connectionString);
     client.connect();
+    client.on('error', (error) => {
+      console.log(error);
+    });
     const query = client.query(testSQL);
     query.on('end', () => {
       client.end();
