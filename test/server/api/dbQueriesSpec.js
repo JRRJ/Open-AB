@@ -34,7 +34,12 @@ describe('DB Queries for API Server', () => {
     before(done => {
       const seedEmail = 'seedEmail@email.com';
       const seedPassword = 'asdfQWERTY4321';
-      authQry.createClient(seedEmail, seedPassword, () => {
+      authQry.createClient(seedEmail, seedPassword, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(result);
+        }
         done();
       });
     });
@@ -43,6 +48,11 @@ describe('DB Queries for API Server', () => {
       const email = 'zzzzzzzzzzzzzz@zzzzzzz.zzzzzzz';
 
       authQry.checkEmail(email, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(result);
+        }
         expect(result).to.exist;
         expect(result.rows[0].exists).to.equal(false);
         done();
